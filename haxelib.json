@@ -1,21 +1,22 @@
 {
-	"name":"hxCodec",
-	"url":"https://github.com/polybiusproxy/hxCodec",
-	"license":"MIT",
-	"tags":[
-		"vlc",
+	"name": "hxCodec",
+	"url": "https://github.com/polybiusproxy/hxCodec",
+	"license": "Public",
+	"tags": [
+		"libvlc",
 		"video",
+		"haxe",
 		"haxeflixel",
 		"openfl",
 		"windows",
-		"mac",
 		"linux",
 		"android"
 	],
-	"description":"Native video support for HaxeFlixel & OpenFL",
-	"version":"2.6.0",
-	"releasenote":"Switched to using externs, now uses Stage3D for video rendering and many more fixes.",
-	"contributors":[
+	"description": "Haxe library for native video playback on HaxeFlixel and OpenFL.",
+	"version": "3.0.2",
+	"releasenote": "Added macOS support back and fixed potential crashes on Windows.",
+	"contributors": [
 		"polybiusproxy"
-	]
+	],
+	"classPath": "src"
 }

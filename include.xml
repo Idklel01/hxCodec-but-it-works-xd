@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="include.xsd"?>
-<extension>
+<extension xmlns="https://lime.openfl.org/project/1.0.4" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://lime.openfl.org/project/1.0.4 https://lime.openfl.org/xsd/project-1.0.4.xsd">
 
-	<!--<assets path="NOTICE-LINUX.md" rename='NOTICE.txt' if="linux" />-->
+	<assets path="project/vlc/dll/Windows" rename="" if="windows" /> 
+	<assets path="project/vlc/dll/MacOS" rename="../MacOS" if="mac" />
 
-	<assets path="include/Mac" rename="../MacOS" if="mac" />
-	<assets path="include/Windows" rename='' if="windows" />
+	<section if="android">
+		<ndll name="c++_shared" dir="project/vlc/lib" />
+		<ndll name="vlc" dir="project/vlc/lib" />
+	</section>
+
+	<section if="ios">
+        	<dependency name="CFNetwork.framework" />
+        	<dependency name="CoreFoundation.framework" />
+        	<dependency name="CoreMedia.framework" />
+        	<dependency name="CoreText.framework" />
+       		<dependency name="CoreVideo.framework" />
+        	<dependency name="Security.framework" />
+        	<dependency name="VideoToolbox.framework" />
+        	<dependency name="CoreImage.framework" />
+
+        	<dependency name="libbz2.tbd" />
+        	<dependency name="libiconv.tbd" />
+    	</section>
 
 	<source path="src" />
-
-	<ndll name="c++_shared" if="android" />
-	<ndll name="vlc" if="android" />
 
 </extension>
