@@ -72,14 +72,7 @@ class VideoHandler extends VLCBitmap
 			finishCallback();
 	}
 
-	/**
-	 * Plays a video.
-	 *
-	 * @param Path Example: `your/video/here.mp4`
-	 * @param Loop Loop the video.
-	 * @param PauseMusic Pause music until the video ends.
-	 */
-	public function playVideo(Path:String, Loop:Bool = false, PauseMusic:Bool = false):Void
+	public function load(Path:String, Loop:Bool = false, PauseMusic:Bool = false):Void
 	{
 		pauseMusic = PauseMusic;
 
@@ -100,9 +93,14 @@ class VideoHandler extends VLCBitmap
 		// in case if you want to use another dir then the application one.
 		// android can already do this, it can't use application's storage.
 		if (FileSystem.exists(Sys.getCwd() + Path))
-			play(Sys.getCwd() + Path, Loop);
+			load(Sys.getCwd() + Path, Loop);
 		else
-			play(Path, Loop);
+			load(Path, Loop);
+	}
+
+	public function playVideo():Void
+	{
+		play();
 	}
 
 	private function update(?E:Event):Void
