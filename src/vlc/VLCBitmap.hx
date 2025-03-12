@@ -163,7 +163,7 @@ class VLCBitmap extends Bitmap
 	}
 
 	// Playback Methods
-	public function play(?location:String = null, loop:Bool = false):Void
+	public function load(?location:String = null, loop:Bool = false):Void
 	{
 		final path:String = #if windows Path.normalize(location).split("/").join("\\") #else Path.normalize(location) #end;
 
@@ -197,7 +197,10 @@ class VLCBitmap extends Bitmap
 			buffer = [];
 
 		isDisplaying = false;
+	}
 
+	public function play():Void
+	{
 		LibVLC.video_set_format_callbacks(mediaPlayer, untyped __cpp__('format_setup'), untyped __cpp__('format_cleanup'));
 		LibVLC.video_set_callbacks(mediaPlayer, untyped __cpp__('lock'), untyped __cpp__('unlock'), untyped __cpp__('display'), untyped __cpp__('this'));
 
@@ -211,7 +214,6 @@ class VLCBitmap extends Bitmap
 		LibVLC.event_attach(eventManager, LibVLC_EventType.MediaPlayerEncounteredError, untyped __cpp__('callbacks'), untyped __cpp__('this'));
 		LibVLC.event_attach(eventManager, LibVLC_EventType.MediaPlayerForward, untyped __cpp__('callbacks'), untyped __cpp__('this'));
 		LibVLC.event_attach(eventManager, LibVLC_EventType.MediaPlayerBackward, untyped __cpp__('callbacks'), untyped __cpp__('this'));
-
 		LibVLC.media_player_play(mediaPlayer);
 	}
 
