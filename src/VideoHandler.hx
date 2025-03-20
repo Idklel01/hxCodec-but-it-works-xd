@@ -72,7 +72,7 @@ class VideoHandler extends VLCBitmap
 			finishCallback();
 	}
 
-	public function load(Path:String, Loop:Bool = false, PauseMusic:Bool = false):Void
+	override public function load(Path:String, Loop:Bool = false, PauseMusic:Bool = false):Void
 	{
 		pauseMusic = PauseMusic;
 
