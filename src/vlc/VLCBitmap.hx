@@ -163,7 +163,7 @@ class VLCBitmap extends Bitmap
 	}
 
 	// Playback Methods
-	public function load(?location:String = null, loop:Bool = false):Void
+	public function load(location:String = null, ?loop:Bool = false):Void
 	{
 		final path:String = #if windows Path.normalize(location).split("/").join("\\") #else Path.normalize(location) #end;
 
