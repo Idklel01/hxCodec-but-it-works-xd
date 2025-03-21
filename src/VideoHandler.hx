@@ -72,11 +72,9 @@ class VideoHandler extends VLCBitmap
 			finishCallback();
 	}
 
-	override public function load(Path:String, Loop:Bool = false, PauseMusic:Bool = false):Void
+	override public function load(Path:String, ?Loop:Bool = false):Void
 	{
-		pauseMusic = PauseMusic;
-
-		if (FlxG.sound.music != null && PauseMusic)
+		if (FlxG.sound.music != null && pauseMusic)
 			FlxG.sound.music.pause();
 
 		// Probably won't help with anything but ok.
